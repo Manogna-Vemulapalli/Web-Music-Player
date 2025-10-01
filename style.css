@@ -1,0 +1,209 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f0f;
+  color: #00ffff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #111;
+  border-bottom: 2px solid #00ffff;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 15px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+main {
+  padding: 20px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.song-card {
+  background-color: #1a1a1a;
+  border: 2px solid #00ffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.song-card:hover {
+  transform: scale(1.05);
+  background-color: #222;
+}
+
+.song-title {
+  font-size: 1rem;
+  color: #00ffff;
+  margin-top: 10px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+  background-color: #111;
+  margin: 10% auto;
+  padding: 30px;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  color: #00ffff;
+}
+
+.close {
+  color: #00ffff;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-controls {
+  margin-top: 20px;
+}
+
+.modal-controls button {
+  background-color: #00ffff;
+  border: none;
+  padding: 10px;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#modal-volume {
+  width: 100px;
+  margin-top: 10px;
+}
+
+.modal-content img.modal-image {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .playlist-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.song-card {
+  background-color: #1a1a1a;
+  border: 2px solid #00ffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Prevent image overflow */
+}
+
+.song-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Crop to fit container */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.song-card:hover {
+  transform: scale(1.05);
+  background-color: #222;
+}
+
+.song-card:hover img {
+  transform: scale(1.05); /* Slight zoom on image */
+}
+
+.song-card img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.close {
+  color: #00ffff;
+  font-size: 28px;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  background-color: #111;
+  padding: 5px;
+  z-index: 10;
+  text-align: right;
+  display: block;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal-content {
+  background-color: #111;
+  margin: 5% auto; /* Reduced from 10% to bring modal higher */
+  padding: 30px;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  color: #00ffff;
+  max-height: 85vh; /* Slightly reduced to ensure full visibility */
+  overflow-y: auto;
+  position: relative;
+}
+
+.song-movie {
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin-top: 5px;
+}
+
+.modal-artist {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin: 10px 0;
+}
